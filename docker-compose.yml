@@ -1,0 +1,11 @@
+services:
+  playwright-tests:
+    build: .
+    image: aiagenticp-tests
+    container_name: aiagenticp-tests
+    environment:
+      - CI=true
+    volumes:
+      - ./playwright-report:/workspace/playwright-report
+      - ./test-results:/workspace/test-results
+    command: npx playwright test
